@@ -1,17 +1,27 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <h3> なぜか反映されない。。。 </h3>
+    <b-list-group>
+      <b-list-group-item v-for="(task, key, index) in allTasks"
+                         :key="index"
+                         @click.prevent="updateTask({ id: key, updates: { completed: !task.completed }})"
+                         :style="task.completed ? 'background-color: rgba(51, 255, 100, 0.2);' : 'background-color: rgba(255, 147, 51, 0.2)'">
+        {{ key }}: {{ task.name }}
+      </b-list-group-item>
+    </b-list-group>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import { mapGetters, mapActions } from 'vuex'
 
 export default {
   name: 'app',
-  components: {
-    HelloWorld
+  computed: {
+    ...mapGetters('tasks', ['allTasks']),
+  },
+  methods: {
+    ...mapActions('tasks', ['updateTask'])
   }
 }
 </script>
