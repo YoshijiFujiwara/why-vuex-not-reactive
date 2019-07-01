@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <h3>なぜか反映されない。。。</h3>
+    <h3>これは反映される</h3>
     <b-list-group>
       <b-list-group-item
         v-for="(task, key, index) in allTasks"
