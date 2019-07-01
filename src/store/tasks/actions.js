@@ -10,6 +10,5 @@ export const addTask = ({ commit }, task) => {
 }
 
 export const updateTask = ({ commit }, payload) => {
-    console.log(payload)
     commit('updateTask', payload)
 }
